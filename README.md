@@ -1,17 +1,15 @@
-# DeaDBeeF Song Rating plugin
+# DeaDBeeF Song Rating Plug-in
+This is an enhanced fork of the plug-in [deadbeef-rating](https://github.com/splushii/deadbeef-rating) by splushii. The source code was completely refactored and new features were added.
 
-A plugin enabling commands to rate track(s) by writing to the `%rating%` metadata tag. The commands are accessible from the context menu or by binding them to hotkeys. 
+With this plug-in it is possible to rate the music files in DeaDBeeF regardless of the music or tag format. The commands are accessible from the context menu or by binding them to hotkeys. The changed playlists are saved on exit of DeaDBeeF, to save them immediately, you have to remove the comment markers of the line `deadbeef->pl_save_all();`.
 
 Big thanks to [Alexey Yakovenko](https://github.com/Alexey-Yakovenko) for the [DeaDBeeF](http://deadbeef.sourceforge.net/) music player.
 
 # Building & Installing
-1. Clone this repository
-2. Download `deadbeef.h`, for example from the [DeaDBeeF source code](http://deadbeef.sourceforge.net/download.html).
-3. Run `sh build.sh [path to dir with deadbeef.h]`
-4. Run `sh easyinstall.sh` to install the plugin to ~/.local/lib/deadbeef, or copy `rating.so` yourself to your DeaDBeeF plugin folder.
-
-# Uninstalling
-Run `sh easyuninstall.sh` to remove the plugin from ~/.local/lib/deadbeef, or remove `rating.so` yourself from your DeaDBeeF plugin folder.
+1. Clone this repository.
+2. Download `deadbeef.h`, for example from the [DeaDBeeF source code](http://deadbeef.sourceforge.net/download.html) and copy it to the cloned deadbeef-rating folder.
+3. Run `build.sh` from a terminal.
+4. Copy the the file `rating.so` to `~/.local/lib/deadbeef` and restart DeaDBeeF.
 
 # Using
 In order to show the rating tags in the playlist, add a new custom column with the following format:
@@ -25,21 +23,3 @@ If you want, you can replace `*` with your rating indicator of choice. For examp
 Or combine them with empty stars:
 
 `$ifequal([%rating%], 5,★★★★★,)$ifequal([%rating%], 4,★★★★☆,)$ifequal([%rating%], 3,★★★☆☆,)$ifequal([%rating%], 2,★★☆☆☆,)$ifequal([%rating%], 1,★☆☆☆☆,)$ifequal([%rating%], 0,☆☆☆☆☆,)`
-
-# License
-
-    DeaDBeeF rating plugin
-    Copyright (C) 2016  Christian Hernvall
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
